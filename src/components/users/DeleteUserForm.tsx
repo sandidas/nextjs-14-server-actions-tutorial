@@ -11,7 +11,7 @@ const DeleteUserForm = ({ id }: { id: string }) => {
     e.preventDefault();
 
     const confirmation = window.confirm("Are you sure you want to delete this user?");
-    console.log("confirmation", confirmation);
+   // console.log("confirmation", confirmation);
     if (confirmation) {
       const response = await deleteAUser(id);
       if (response?.error) {

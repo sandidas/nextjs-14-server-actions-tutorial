@@ -9,7 +9,7 @@ const UserSearch = ({ search }: { search?: string }) => {
   const [formSubmitted, setFormSubmitted] = useState(true);
   const router = useRouter();
 
-  console.log("formSubmitted", formSubmitted);
+  //console.log("formSubmitted", formSubmitted);
 
   useEffect(() => {
     if (formSubmitted) {

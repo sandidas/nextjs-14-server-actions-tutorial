@@ -16,7 +16,7 @@ export const createNewUser = async (formData: FormData) => {
             email: formData.get('email'),
         }
         const saveUser = await new User(data).save()
-        console.log('saveUser', saveUser)
+      //  console.log('saveUser', saveUser)
         revalidatePath('/');
 
     } catch (error) {
@@ -94,7 +94,7 @@ export const showUsers = async ({ search }: any) => {
         } else {
             response = await User.find().exec()
         }
-        console.log('response', response)
+       // console.log('response', response)
         return response
 
     } catch (error) {
