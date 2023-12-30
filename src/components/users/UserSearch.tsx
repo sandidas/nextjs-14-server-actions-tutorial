@@ -12,7 +12,7 @@ const UserSearch = ({ search }: { search?: string }) => {
   //console.log("formSubmitted", formSubmitted);
 
   useEffect(() => {
-    if (formSubmitted) {
+    if (formSubmitted && searchKeyword !== undefined) {
       router.push(`/user?search=${searchKeyword}`);
     } else {
       router.push(`/user`);
