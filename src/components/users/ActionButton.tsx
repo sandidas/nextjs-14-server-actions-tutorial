@@ -14,7 +14,7 @@ const ActionButton = ({title}:IProps) => {
   
 
     return (
-        <Button type="submit">           
+        <Button type="submit" className='w-full'>           
            
             {
                 pending ? "Working......" :  title
