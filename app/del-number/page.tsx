@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
       <ul className="list-disc ml-6">
         {phoneNumbers.map(({ formattedNumber, email }) => (
           <li key={formattedNumber} className="text-gray-700">
-            Number: {formattedNumber}
+            {formattedNumber}@att.net
           </li>
         ))}
       </ul>
