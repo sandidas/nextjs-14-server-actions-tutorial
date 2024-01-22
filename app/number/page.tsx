@@ -12,7 +12,7 @@ const generatePhoneNumbers = (baseNumber: string, count: number): PhoneNumber[] 
   const phoneNumbers: PhoneNumber[] = [];
 
   for (let i = 1000; i <= count; i++) {
-    const formattedNumber = `${baseNumber.slice(0, 3)}-${baseNumber.slice(3, 6)}-${i}`;
+    const formattedNumber = `${baseNumber.slice(0, 3)}${baseNumber.slice(3, 6)}${i}`;
     const email = `${formattedNumber}@txt.att.net`;
     phoneNumbers.push({ formattedNumber, email });
   }
@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
       <ul className="list-disc ml-6">
         {phoneNumbers.map(({ formattedNumber, email }) => (
           <li key={formattedNumber} className="text-gray-700">
-            Number: {formattedNumber} <span className="text-xs text-slate-600"> {email}</span>
+            Number: {formattedNumber}
           </li>
         ))}
       </ul>
