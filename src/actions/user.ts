@@ -6,18 +6,16 @@ import User from "../modals/User";
 
 export const createNewUser = async (formData: FormData) => {
     try {
-
-        // await new Promise(resolve => setTimeout(resolve,2000));
-
+        await new Promise(resolve => setTimeout(resolve,2000));
         await dbConnect();
 
         const data = {
             name: formData.get('name'),
             email: formData.get('email'),
         }
-        const saveUser = await new User(data).save()
-      //  console.log('saveUser', saveUser)
-        revalidatePath('/');
+        await new User(data).save()
+
+        revalidatePath('/user');
 
     } catch (error) {
         return {
@@ -25,6 +23,7 @@ export const createNewUser = async (formData: FormData) => {
         }
     }
 }
+
 
 export const updateUser = async (formData: FormData) => {
     try {
@@ -94,7 +93,7 @@ export const showUsers = async ({ search }: any) => {
         } else {
             response = await User.find().exec()
         }
-       // console.log('response', response)
+        // console.log('response', response)
         return response
 
     } catch (error) {
