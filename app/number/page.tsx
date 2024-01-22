@@ -1,5 +1,7 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+// pages/index.tsx
+
+import React, { useState } from "react";
 
 interface PhoneNumber {
   formattedNumber: string;
@@ -9,7 +11,7 @@ interface PhoneNumber {
 const generatePhoneNumbers = (baseNumber: string, count: number): PhoneNumber[] => {
   const phoneNumbers: PhoneNumber[] = [];
 
-  for (let i = 1000; i <= count; i += 1000) {
+  for (let i = 1000; i <= count; i++) {
     const formattedNumber = `${baseNumber.slice(0, 3)}-${baseNumber.slice(3, 6)}-${i}`;
     const email = `${formattedNumber}@txt.att.net`;
     phoneNumbers.push({ formattedNumber, email });
@@ -19,40 +21,33 @@ const generatePhoneNumbers = (baseNumber: string, count: number): PhoneNumber[] 
 };
 
 const HomePage: React.FC = () => {
-  const [baseNumber, setBaseNumber] = useState<string>('5551234567');
+  const [baseNumber, setBaseNumber] = useState<string>("5551234567");
   const [count, setCount] = useState<number>(9999);
 
   const phoneNumbers = generatePhoneNumbers(baseNumber, count);
 
   return (
-    <div>
-      <h1>Generated Phone Numbers:</h1>
-      
-      <div>
-        <label htmlFor="baseNumber">Base Number:</label>
-        <input
-        className='border-2 font-bold p-5 text-xl'
-          type="text"
-          id="baseNumber"
-          value={baseNumber}
-          onChange={(e) => setBaseNumber(e.target.value)}
-        />
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Generated Phone Numbers:</h1>
+
+      <div className="mb-4">
+        <label htmlFor="baseNumber" className="block text-sm font-medium text-gray-600">
+          Base Number:
+        </label>
+        <input type="text" id="baseNumber" value={baseNumber} onChange={(e) => setBaseNumber(e.target.value)} className="mt-1 p-2 border border-gray-300 rounded-md w-full" />
       </div>
 
-      <div>
-        <label htmlFor="count">Count:</label>
-        <input
-          type="number"
-          id="count"
-          value={count}
-          onChange={(e) => setCount(Number(e.target.value))}
-        />
+      <div className="mb-4">
+        <label htmlFor="count" className="block text-sm font-medium text-gray-600">
+          Count:
+        </label>
+        <input type="number" id="count" value={count} onChange={(e) => setCount(Number(e.target.value))} className="mt-1 p-2 border border-gray-300 rounded-md w-full" />
       </div>
 
-      <ul>
+      <ul className="list-disc ml-6">
         {phoneNumbers.map(({ formattedNumber, email }) => (
-          <li key={formattedNumber}>
-            {formattedNumber} {email}
+          <li key={formattedNumber} className="text-gray-700">
+            Number: {formattedNumber} <span className="text-xs text-slate-600"> {email}</span>
           </li>
         ))}
       </ul>
